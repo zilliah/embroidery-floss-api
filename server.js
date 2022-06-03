@@ -23,6 +23,19 @@ flossList.noFlossMatch = {
     hex: "none"
 }
 
+//search
+function searchFlossList(property, inputValue) {
+    let found;
+    for (let colour in flossList) {
+        if (flossList[colour][property] === inputValue) {
+            found = flossList[colour];
+            break;
+        }
+    }
+    if (!found) found = flossList.noFlossMatch;
+    return found;
+}
+
 
 app.get("/", (request, response) => {
     response.sendFile(__dirname + "/index.html");
@@ -34,30 +47,34 @@ app.get("/api/full", (request, response) => {
     response.json(flossList);
 });
 
-//get a particular colour by DMC number
+//get a floss by DMC number
 app.get("/api/number/:number", (request, response) => {
     let inputDMCNumber = request.params.number.toLowerCase();
-    console.log(`Searching by number, for ${inputDMCNumber}`);
+    console.log(`Searching by number, for: ${inputDMCNumber}`);
     if (flossList[inputDMCNumber]) response.json(flossList[inputDMCNumber]);
     else response.json(flossList.noFlossMatch)
 });
 
-//get a colour by hex code -> nearest match? or list of matches?
+//get a floss by hex code
 app.get("/api/hex/:hex", (request, response) => {
     let inputHex = request.params.hex.toLowerCase();
-    console.log(`Search by hex, for ${inputHex}`);
+    console.log(`Searching by hex, for: ${inputHex}`);
     //exact match
-    let found;
-    for (let colour in flossList) {
-        if (flossList[colour].hex === inputHex) {
-            found = flossList[colour];
-            break;
-        }
-    }
-    if (!found) found = flossList.noFlossMatch;
+    let found = searchFlossList("hex", inputHex);
     response.json(found);
 
-    //"no exact match found, closest options are:"
+    //TODO "no exact match found, closest options are:"
+});
+
+//get a floss by name
+app.get("/api/name/:name", (request, response) => {
+    let inputName = request.params.name.toLowerCase();
+    console.log(`Searching by name, for: ${inputName}`);
+    
+    let found;
+
+
+
 });
 
 app.listen(process.env.PORT || PORT, () => {
