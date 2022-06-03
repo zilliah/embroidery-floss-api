@@ -1,0 +1,31 @@
+{
+  "name": "embroidery-floss-api",
+  "version": "1.0.0",
+  "description": "An API for common embroidery floss numbers and colours",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zilliah/embroidery-floss-api.git"
+  },
+  "keywords": [
+    "embroidery",
+    "floss",
+    "api",
+    "dmc",
+    "colors",
+    "colours"
+  ],
+  "author": "Kerry Smart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zilliah/embroidery-floss-api/issues"
+  },
+  "homepage": "https://github.com/zilliah/embroidery-floss-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  }
+}
