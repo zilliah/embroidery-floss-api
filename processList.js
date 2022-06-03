@@ -18,6 +18,7 @@ fs.readFile("result.csv", "utf8", (err, data) => {
     for (let colour of totalArr) {
         let line = colour.split(",");
         dmc[line[0]] = {
+            number: line[0].trim(), //this is a bit redundant, but it's useful
             name: line[1].trim(),
             hex: line[2].trim()
         }
