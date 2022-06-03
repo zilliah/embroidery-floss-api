@@ -18,13 +18,13 @@ fs.readFile("result.csv", "utf8", (err, data) => {
     for (let colour of totalArr) {
         let line = colour.split(",");
         dmc[line[0].toLowerCase()] = {
-            number: line[0].toLowerCase().trim(), //this is a bit redundant, but it's useful
+            number: line[0].toLowerCase().trim(), //this is redundant, but it's useful for managing search responses
             readableName: line[1].trim(),
             searchName: line[1].toLowerCase().trim().replace(/ /g, "_"),
-            hex: line[2].trim()
+            hex: line[2].trim().slice(1)
         }
-        delete dmc.DMC_COLOR;
     }
+    delete dmc.dmc_color;
     console.log(dmc);
 
     //write to flossList.json
