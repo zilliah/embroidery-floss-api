@@ -17,9 +17,10 @@ fs.readFile("result.csv", "utf8", (err, data) => {
     //format it into an object
     for (let colour of totalArr) {
         let line = colour.split(",");
-        dmc[line[0]] = {
-            number: line[0].trim(), //this is a bit redundant, but it's useful
-            name: line[1].trim(),
+        dmc[line[0].toLowerCase()] = {
+            number: line[0].toLowerCase().trim(), //this is a bit redundant, but it's useful
+            readableName: line[1].trim(),
+            searchName: line[1].toLowerCase().trim().replace(/ /g, "_"),
             hex: line[2].trim()
         }
         delete dmc.DMC_COLOR;
