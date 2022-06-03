@@ -24,6 +24,8 @@ flossList.noFlossMatch = {
 }
 
 //search
+//TODO is currently exact match only
+//allow for substrings and partial matches for some search types
 function searchFlossList(property, inputValue) {
     let found;
     for (let colour in flossList) {
@@ -71,8 +73,8 @@ app.get("/api/name/:name", (request, response) => {
     let inputName = request.params.name.toLowerCase();
     console.log(`Searching by name, for: ${inputName}`);
     
-    let found;
-
+    let found = searchFlossList("searchName", inputName);
+    response.json(found);
 
 
 });
