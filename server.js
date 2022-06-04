@@ -24,7 +24,7 @@ flossList.noFlossMatch = {
 }
 
 //exact match search
-//will only return if exact match is found
+//returns single element array of match
 function searchFlossList(property, inputValue) {
     for (let currFloss in flossList) {
         if (flossList[currFloss][property] === inputValue) {
@@ -35,7 +35,7 @@ function searchFlossList(property, inputValue) {
 }
 
 
-// inexact match: allow for substrings and partial matches for some search types
+//inexact match: allow for substrings and partial matches for some search types
 //returns array of matches
 function multipleSearchFlossList(property, inputValue) {
     const inputWords = inputValue.split("_");
@@ -82,25 +82,30 @@ app.get("/api/hex/:hex", (request, response) => {
 
     //validate hex input
     if (inputHex.length !== 6 || !/([a-f]|[0-9]){6}/.test(inputHex)) {
-        response.json("Invalid hex input");
+        response.json("Error: invalid hex input");
     }
     
     //exact match
-    //TODO inexact match
     let found = searchFlossList("hex", inputHex);
 
+    //TODO inexact match
+    //how to handle finding "closest" colours with hex?
+    //calclate differences in RGB channels? convert to HSL or RGB to make it easier?
+    
     response.json(found);
 
 });
 
 //get a floss by name
 //returns array  of either exact match or set of partial matches
+//if searchtype=all query parameter is added, will return all matches even if there's an exact match
 app.get("/api/name/:name", (request, response) => {
     let inputName = request.params.name.toLowerCase().trim().replace(/ +/g, "_");
-    console.log(`Searching by name, for: ${inputName}`);
+    let searchType = request.query.searchtype;
+    console.log(`Searching by name, for: ${inputName}, searchType ${searchType}`);
     
-    //TODO how to handle if want inexact matches but search string has exact match
-    let found = searchFlossList("searchName", inputName);
+    let found;
+    if (!searchType) found = searchFlossList("searchName", inputName);
     if (!found) found = multipleSearchFlossList("searchName", inputName);
 
     response.json(found);
