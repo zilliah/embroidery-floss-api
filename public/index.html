@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Karla:wght@300;400&display=swap" rel="stylesheet">
+
+    <title>Embroidery Floss API</title>
+</head>
+<body>
+
+    <header>
+        <h1>The Embroidery Floss API</h1>
+        <h2>An API for embroidery floss colours and numbers</h2>
+    </header>
+    
+    
+    <section>
+        <h2>Usage</h2>
+        <p>Currently includes basic DMC colours.  Search by name, DMC number, or hex code.</p> 
+        <p>CORS is enabled.</p>
+        <p>Base URL: <span class="code">https://embroidery-floss-api.herokuapp.com/api/</span></p>
+
+    
+        <h3>All flosses</h3>
+        <p>For a list of all flosses:</p>
+        <span class="code">https://embroidery-floss-api.herokuapp.com/api/full</span>
+    
+        <h3>Search by DMC number</h3>
+        <p>To search for a DMC number: <span class="code">/number/&lt;number&gt;</span></p>
+        <p>Eg: <span class="code">https://embroidery-floss-api.herokuapp.com/api/number/912</span></p>
+
+
+        <h3>Search by name</h3>
+        <p>To search by name: <span class="code">/name/&lt;name&gt;</span></name></p>
+        <p>Eg: <span class="code">https://embroidery-floss-api.herokuapp.com/api/name/red</span></p>
+        <p>Exact matches are prioritised: if an exact match is found, it will return only the exact match. If an exact match is not found, it will return any colours with names that include the search term.</p>
+        <p>If you want all the matching flosses even when an exact match is found, add a query parameter: <span class="code">/name/&lt;name&gt;?searchtype=all</span></p>
+        <p>Eg: <span class="code">https://embroidery-floss-api.herokuapp.com/api/name/red?searchtype=all</span></p>
+
+        <h3>Search by hex code</h3>
+        <p>Will currently only work for exact hex code matches.</p>
+        <p>Hex codes should not include a #</p>
+        <p>To search by hex code: <span class="code">/api/hex/&lt;hex&gt;</span></hex></p>
+        <p>Eg: <span class="code">https://embroidery-floss-api.herokuapp.com/api/hex/393068</span></p>
+
+    </section>
+
+    <footer>
+        <p>Contributions welcome on <a href="https://github.com/zilliah/embroidery-floss-api">Github</a>!</p>
+    </footer>
+    <div></div>
+</body>
+</html>

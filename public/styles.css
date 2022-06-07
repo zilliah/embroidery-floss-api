@@ -1,0 +1,131 @@
+body {
+    font-size: 62.5%;
+    background-color: rgb(95, 102, 116);
+    height: 100vh;
+    font-family: 'Karla', sans-serif;
+    padding: 2rem;
+}
+
+section {
+    background-color: rgb(224, 235, 255);
+    width: 60%;
+    margin: auto;
+    padding: 2rem 3rem;
+}
+
+section h3 {
+    border-top: 2px dashed rgb(145, 159, 213);
+}
+
+h2, h3 {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    color: rgb(102, 112, 153);
+}
+
+
+header h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding-top: 0;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+}
+
+header, footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: white;
+    min-height: 20vh;
+    margin: 0 auto ;
+    padding: 2rem 3rem;
+    border-radius: 4.5rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+footer {
+    padding: 0;
+    border-radius: 3rem;
+    margin-bottom: 2rem;
+}
+
+.code {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1rem;
+    line-height: 2.1rem;
+    background-color: rgb(238, 244, 255);
+    margin: 1rem 0.6rem;
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+}
+
+
+
+@media screen and (max-width: 1135px) {
+    p {
+        font-size: 1rem;
+    }
+
+    .code {
+        font-size: 1rem;
+        display: block;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 1033px) {
+    section {
+        padding: 1rem 2rem;
+        width: 75%;
+    }
+    
+}
+
+@media screen and (max-width: 860px) {
+    header, footer {
+        border-radius: 2rem;
+    }
+    .code {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    body {
+        padding: 1rem;
+    }
+    header h2 {
+        font-size: 1rem;
+    }
+
+    header, footer {
+        min-height: 10vh;
+        border-radius: 1rem;
+    }
+}
+
+@media screen and (max-width: 384px) {
+    body {
+        padding: 0%;
+    }
+    section {
+        width: 100%;
+        padding: 0.7rem;
+    }
+
+    header, footer {
+        border-radius: 0;
+    }
+
+    .code, p {
+        box-sizing: border-box;
+        width: calc(100% - 1.4rem);
+    }
+
+}
