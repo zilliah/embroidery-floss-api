@@ -1,6 +1,6 @@
 # Embroidery Floss API
 
-An API for DMC embroidery floss. Currently includes the "basic" DMC colours. Search by name, DMC number, or hex code. CORS is enabled. 
+An API for embroidery floss colours and numbers. Currently includes the "basic" DMC colours. Search by name, DMC number, or hex code. CORS is enabled. 
 
 See it at https://embroidery-floss-api.herokuapp.com/
 
@@ -10,23 +10,21 @@ The base url is `https://embroidery-floss-api.herokuapp.com/api/`
 
 ## All flosses
 
-To get a list of all flosses, use `https://embroidery-floss-api.herokuapp.com/api/full`
+For a list of all flosses: `https://embroidery-floss-api.herokuapp.com/api/full`
 
 ## Search by DMC number
 
-To get information for a specific DMC number, use `/number/<number>`
+To search for a DMC number: `/number/<number>`
 
 Eg: `https://embroidery-floss-api.herokuapp.com/api/number/912`
 
 ## Search by name
 
-To search for a specific name, use `/name/<name>`
+To search by name: `/name/<name>`
 
-Eg, `https://embroidery-floss-api.herokuapp.com/api/name/red`
+Eg: `https://embroidery-floss-api.herokuapp.com/api/name/red`
 
-Exact matches are prioritised: if an exact match is found, it will return only the exact match. 
-
-If an exact match is **not** found, it will return any colours with names that include the search term. 
+Exact matches are prioritised: if an exact match is found, it will return only the exact match. If an exact match is not found, it will return any colours with names that include the search term.
 
 If you want all the matching flosses even when an exact match is found, add a query parameter: `/name/<name>?searchtype=all`
 
@@ -34,11 +32,11 @@ Eg: `https://embroidery-floss-api.herokuapp.com/api/name/red?searchtype=all`
 
 ## Search by hex code
 
-Currently, will only work for exact hex code matches. Hex codes should **not** include the `#`. 
+Will currently only work for exact hex code matches.. Hex codes should **not** include the `#`. 
 
-To search, use `/api/hex/<hex code>`
+To search by hex code: `/api/hex/<hex code>`
 
-Eg, `https://embroidery-floss-api.herokuapp.com/api/hex/393068`
+Eg: `https://embroidery-floss-api.herokuapp.com/api/hex/393068`
 
 # Improvements 
 
